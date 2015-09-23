@@ -9,9 +9,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace MetronomeDemo
+namespace MetronomeApp
 {
-	[Activity (Label = "MetronomeDemo", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "MetronomeApp", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
 		MediaPlayer _player;
@@ -23,25 +23,27 @@ namespace MetronomeDemo
 		{
 			base.OnCreate (bundle);
 
-			_player = MediaPlayer.Create(this, Metronome.Resource.Raw.Metronome1a);
+			_player = MediaPlayer.Create(this, MetronomeApp.Resource.Raw.Metronome1a);
 
 			// Set our view from the "main" layout resource
-			SetContentView (Metronome.Resource.Layout.Main);
+			SetContentView (MetronomeApp.Resource.Layout.Main);
 			//Get ui elements
-			Android.Widget.Switch StartSwitch = FindViewById<Android.Widget.Switch>(Resource.Id.Switch);
-			EditText BPMText = FindViewById<EditText>(Resource.Id.BPM);
+			Android.Widget.Switch StartSwitch = FindViewById<Android.Widget.Switch>(MetronomeApp.Resource.Id.Switch);
+			EditText BPMText = FindViewById<EditText>(MetronomeApp.Resource.Id.BPM);
 
 			StartSwitch.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
-				BPM = Convert.ToInt16(BPMText.Text);
+				BPM = Convert.ToInt16 (BPMText.Text);
 
-				StopWatch.Start();
+				StopWatch.Start ();
 				WatchStart:
-				_player.Start();
+				_player.Start ();
 				BeforeTime = StopWatch.ElapsedMilliseconds;
 				IfStart:
-				if (BeforeTime + 60000 / BPM == StopWatch.ElapsedMilliseconds) goto WatchStart;
-				else goto IfStart;
-			}
+				if (BeforeTime + 60000 / BPM == StopWatch.ElapsedMilliseconds)
+					goto WatchStart;
+				else
+					goto IfStart;
+			};
 		}
 	}
 }

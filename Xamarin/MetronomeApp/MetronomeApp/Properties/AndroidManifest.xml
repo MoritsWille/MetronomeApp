@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" package="MetronomeApp" android:installLocation="auto" android:versionCode="1">
+	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="22" />
+	<application android:label="MetronomeApp" android:icon="@drawable/metronomeicon2"></application>
+	<uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+	<uses-permission android:name="android.permission.DELETE_PACKAGES" />
+	<uses-permission android:name="android.permission.RESTART_PACKAGES" />
+	<uses-permission android:name="android.permission.INTERNET" />
+</manifest>

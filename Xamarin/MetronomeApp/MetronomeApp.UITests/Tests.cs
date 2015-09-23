@@ -6,7 +6,7 @@ using Xamarin.UITest;
 using Xamarin.UITest.Android;
 using Xamarin.UITest.Queries;
 
-namespace Metronome.UITests
+namespace MetronomeApp.UITests
 {
 	[TestFixture]
 	public class Tests
